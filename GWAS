@@ -1,0 +1,35 @@
+## This is R script for practice of GWAS using GAPIT (https://zzlab.net/GAPIT/index.html)
+
+# clear working environment
+ rm(list=ls()) 
+
+# set your working directory (First prepare a folder for your practice)
+setwd("N:/My Drive/Lab_general/Bioinfo_workshop/Practice")
+
+
+# install and load support packages
+source("http://www.zzlab.net/GAPIT/GAPIT.library.R")  # Update all/some/none? [a/s/n]: a
+
+
+# load GAPIT function
+source("http://www.zzlab.net/GAPIT/gapit_functions.txt") 
+
+
+# Import data
+# phenotypes
+myY <- read.table(file = "http://zzlab.net/GAPIT/data/mdp_traits.txt", header = TRUE)
+
+# SNP marker matrix
+myGD <- read.table(file = "http://zzlab.net/GAPIT/data/mdp_numeric.txt", header = TRUE)
+
+# map information of markers 
+myGM <- read.table(file = "http://zzlab.net/GAPIT/data/mdp_SNP_information.txt", header = TRUE)
+
+
+# GWAS
+myGAPIT=GAPIT(
+Y=myY[,c(1,2)],       # Phenotypes: fist column is ID and second is EarHT
+GD=myGD,	            # SNP marker matrix	
+GM=myGM,	            # Marker map
+PCA.total=3,	        # PC number for population structure correction
+model=c("MLM"))       # Select a statistic model
