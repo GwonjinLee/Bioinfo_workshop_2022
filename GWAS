@@ -1,3 +1,4 @@
+
 ## This is R script for practice of GWAS using GAPIT (https://zzlab.net/GAPIT/index.html)
 
 # clear working environment
@@ -33,3 +34,6 @@ GD=myGD,	            # SNP marker matrix
 GM=myGM,	            # Marker map
 PCA.total=3,	        # PC number for population structure correction
 model=c("MLM"))       # Select a statistic model
+
+
+
